@@ -12,7 +12,296 @@ redstore website
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   
-  <link rel="stylesheet" href="style .css"><style>
+  <style>/* --- Imported Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* --- General Variables & Reset --- */
+:root {
+    --primary-color: #ff523b;
+    --dark-color: #333;
+    --light-bg: #eef8f8;
+    --grey-text: #555;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--dark-color);
+}
+
+a {
+    text-decoration: none !important;
+    color: var(--dark-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- Navbar --- */
+.navbar {
+    padding-top: 20px;
+}
+
+.navbar-brand img {
+    width: 125px;
+}
+
+.nav-link {
+    color: var(--dark-color) !important;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+.cart img {
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.cart:hover img {
+    transform: scale(1.1);
+}
+
+/* --- Hero Section --- */
+.hero {
+    background: radial-gradient(#fff, #ffd6d6);
+    /* Ensure the hero background covers the top properly */
+    margin-bottom: 30px;
+    padding-top: 40px; 
+    padding-bottom: 40px;
+}
+
+.hero-text h1 {
+    font-size: 50px;
+    line-height: 60px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    color: var(--grey-text);
+    margin-bottom: 30px;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* --- Custom Buttons --- */
+.btn-explore, .btn-custom {
+    display: inline-block;
+    background: var(--primary-color);
+    color: #fff !important;
+    padding: 10px 30px;
+    border-radius: 30px;
+    transition: var(--transition);
+    border: none;
+}
+
+.btn-explore:hover, .btn-custom:hover {
+    background: #563434;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* --- Categories --- */
+.col-md-4 img {
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.col-md-4 img:hover {
+    transform: scale(1.05);
+}
+
+/* --- Featured Products --- */
+.featured-heading {
+    text-align: center;
+    margin: 50px 0;
+    position: relative;
+    line-height: 60px;
+    color: var(--dark-color);
+}
+
+.featured-heading::after {
+    content: '';
+    background: var(--primary-color);
+    width: 80px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.product-card {
+    transition: var(--transition);
+    padding: 10px;
+    cursor: pointer;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.product-card h6 {
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.stars, .testimonial-stars {
+    color: var(--primary-color);
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.price {
+    color: var(--grey-text);
+    font-size: 14px;
+}
+
+/* --- Promo Section --- */
+.promo-section {
+    background: radial-gradient(#fff, #ffd6d6);
+    margin-top: 80px;
+    padding: 60px 0;
+    border-radius: 10px;
+}
+
+.promo-image img {
+    width: 100%;
+    max-width: 300px;
+}
+
+.promo-text small {
+    color: #555;
+}
+
+/* --- Testimonials --- */
+.testimonial-card {
+    text-align: center;
+    padding: 40px 20px;
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: var(--transition);
+    height: 100%; /* Equal height */
+    border-radius: 5px;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+}
+
+.testimonial-card .fa-quote-left {
+    font-size: 34px;
+    color: var(--primary-color);
+}
+
+.testimonial-card p {
+    font-size: 14px;
+    color: #777;
+    margin: 15px 0;
+}
+
+.testimonial-avatar {
+    width: 50px;
+    height: 50px; /* Force circle */
+    border-radius: 50%;
+    margin-top: 20px;
+    object-fit: cover;
+}
+
+.testimonial-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: #555;
+    margin-top: 5px;
+}
+
+/* --- Brands --- */
+.brands-logos {
+    margin: 80px auto;
+}
+
+.brands-logos img {
+    width: 100%;
+    cursor: pointer;
+    filter: grayscale(100%);
+    transition: var(--transition);
+}
+
+.brands-logos img:hover {
+    filter: grayscale(0);
+}
+
+/* --- Footer --- */
+.footer {
+    background: #000;
+    color: #8a8a8a;
+    font-size: 14px;
+    padding: 60px 0 20px;
+}
+
+.footer p {
+    color: #8a8a8a;
+}
+
+.footer h6 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.footer-logo {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.footer-logo span {
+    color: var(--primary-color);
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+}
+
+.footer ul li a {
+    color: #8a8a8a;
+    transition: var(--transition);
+}
+
+.footer ul li a:hover {
+    color: #fff;
+}
+
+.footer small {
+    display: block;
+    margin-top: 20px;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+}
     
   </style>
 </head>
